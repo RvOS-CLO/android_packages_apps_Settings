@@ -24,4 +24,7 @@
     <!-- CodeLinaro Revision -->
     <string name="codelinaro_revision">CodeLinaro Revision</string>
 
+    <!-- Running services - Background processes tab -->
+    <string name="background_processes_settings_title">Background processes</string>
+
 </resources>
