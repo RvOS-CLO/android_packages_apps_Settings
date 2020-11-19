@@ -37,4 +37,7 @@
     <string name="private_dns_mode_google" translatable="false">Google DNS</string>
     <string name="private_dns_hostname_google" translatable="false">dns.google</string>
 
+    <!-- Radio Info -->
+    <string name="radio_info_title">Radio info</string>
+
 </resources>
