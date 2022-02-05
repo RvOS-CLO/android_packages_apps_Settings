@@ -209,6 +209,13 @@
         android:title="@string/docking_sounds_title"
         android:order="-35"/>
 
+   <co.aospa.framework.preference.SystemSettingSwitchPreference
+         android:key="show_app_volume"
+         android:title="@string/app_volume_title"
+         android:summary="@string/app_volume_summary"
+         android:defaultValue="false"
+         android:order="-77"/>
+
     <!-- Touch sounds -->
     <SwitchPreference
         android:key="touch_sounds"
