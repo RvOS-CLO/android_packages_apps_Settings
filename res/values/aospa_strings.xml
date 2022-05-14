@@ -168,4 +168,8 @@
     <string name="show_navbar_gesture_bar_title">Gesture bar</string>
     <string name="show_navbar_gesture_bar_summary">Show gesture bar at the bottom of the screen</string>
 
+    <!-- General -->
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="longpress_to_clipboard">Long-press to copy</string>
+
 </resources>
