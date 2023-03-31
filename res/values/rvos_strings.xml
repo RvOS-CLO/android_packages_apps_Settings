@@ -89,4 +89,9 @@
      <string name="selinux_status_disabled">Disabled</string>
      <string name="selinux_status_permissive">Permissive</string>
      <string name="selinux_status_enforcing">Enforcing</string>
+
+         <!-- Force LTE_CA -->
+    <string name="force_lte_ca">Force LTE CA</string>
+    <string name="force_lte_ca_summary">Force LTE carrier aggregation to work</string>
+
 </resources>
