@@ -67,6 +67,15 @@
             android:summary="@string/summary_placeholder"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.RvOSVersionPreferenceController"/>
 
+	<!-- CodeLinaro Revision -->
+	<Preference
+	    android:key="codelinaro_revision"
+	    android:order="5"
+	    android:title="@string/codelinaro_revision"
+	    android:summary="@string/summary_placeholder"
+	    settings:controller="com.android.settings.deviceinfo.firmwareversion.CodeLinaroRevisionPreferenceController"/>
+
+
         <!-- Account name -->
         <Preference
             android:key="branded_account"

@@ -21,4 +21,7 @@
     <!-- RvOS Version -->
     <string name="rvos_version">RvOS version</string>
 
+    <!-- CodeLinaro Revision -->
+    <string name="codelinaro_revision">CodeLinaro Revision</string>
+
 </resources>
