@@ -62,7 +62,7 @@
         <!-- Account name -->
         <Preference
             android:key="branded_account"
-            android:order="5"
+            android:order="6"
             android:title="@string/my_device_info_account_preference_title"
             android:summary="@string/summary_placeholder"
             settings:enableCopying="true"
