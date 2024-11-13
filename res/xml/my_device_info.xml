@@ -51,6 +51,14 @@
             android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
             settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
 
+	<!-- RvOS Maintainer -->
+	<Preference
+	    android:key="rvos_maintainer"
+	    android:order="3"
+	    android:title="@string/rvos_maintainer"
+	    android:summary="@string/summary_placeholder"
+	    settings:controller="com.android.settings.deviceinfo.firmwareversion.RvOSMaintainerPreferenceController"/>
+
         <!-- Paranoid Android version -->
         <Preference
             android:key="aospa_version"
