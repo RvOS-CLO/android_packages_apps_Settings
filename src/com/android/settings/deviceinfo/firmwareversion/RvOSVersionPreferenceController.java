@@ -22,15 +22,15 @@ import android.os.SystemProperties;
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
-public class ParanoidAndroidVersionPreferenceController extends BasePreferenceController {
+public class RvOSVersionPreferenceController extends BasePreferenceController {
 
-    private static final String AOSPA_BUILD_VARIANT_PROP = "ro.aospa.build.variant";
-    private static final String AOSPA_VERSION_MAJOR_PROP = "ro.aospa.version.major";
-    private static final String AOSPA_VERSION_MINOR_PROP = "ro.aospa.version.minor";
+    private static final String RVOS_BUILD_VARIANT_PROP = "ro.rvos.build.variant";
+    private static final String RVOS_VERSION_MAJOR_PROP = "ro.rvos.version.major";
+    private static final String RVOS_VERSION_MINOR_PROP = "ro.rvos.version.minor";
 
     private final Context mContext;
 
-    public ParanoidAndroidVersionPreferenceController(Context context, String key) {
+    public RvOSVersionPreferenceController(Context context, String key) {
         super(context, key);
         mContext = context;
     }
@@ -42,19 +42,19 @@ public class ParanoidAndroidVersionPreferenceController extends BasePreferenceCo
 
     @Override
     public CharSequence getSummary() {
-        String aospaVersionMajor = SystemProperties.get(AOSPA_VERSION_MAJOR_PROP,
+        String rvosVersionMajor = SystemProperties.get(RVOS_VERSION_MAJOR_PROP,
                 mContext.getResources().getString(R.string.device_info_default));
-        String aospaVersionMinor = SystemProperties.get(AOSPA_VERSION_MINOR_PROP,
+        String rvosVersionMinor = SystemProperties.get(RVOS_VERSION_MINOR_PROP,
                 mContext.getResources().getString(R.string.device_info_default));
-        String aospaBuildVariant = SystemProperties.get(AOSPA_BUILD_VARIANT_PROP,
+        String rvosBuildVariant = SystemProperties.get(RVOS_BUILD_VARIANT_PROP,
                 mContext.getResources().getString(R.string.device_info_default));
 
-        if (aospaBuildVariant.equals("Release")) {
-            return aospaVersionMajor + " " + aospaVersionMinor;
-        } else if (aospaBuildVariant.equals("Unofficial")) {
-           return aospaVersionMajor + " " + aospaBuildVariant;
+        if (rvosBuildVariant.equals("Release")) {
+            return rvosVersionMajor + " " + rvosVersionMinor;
+        } else if (rvosBuildVariant.equals("Unofficial")) {
+           return rvosVersionMajor + " " + rvosBuildVariant;
         } else {
-           return aospaVersionMajor + " " + aospaBuildVariant + " " + aospaVersionMinor;
+           return rvosVersionMajor + " " + rvosBuildVariant + " " + rvosVersionMinor;
         }
     }
 }

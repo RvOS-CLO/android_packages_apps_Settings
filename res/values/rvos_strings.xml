@@ -18,4 +18,7 @@
     <!-- RvOS Maintainer -->
     <string name="rvos_maintainer">Maintainer</string>
 
+    <!-- RvOS Version -->
+    <string name="rvos_version">RvOS version</string>
+
 </resources>

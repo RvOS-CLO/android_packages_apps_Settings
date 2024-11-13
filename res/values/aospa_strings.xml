@@ -15,9 +15,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Paranoid Android version -->
-    <string name="aospa_version">Paranoid Android version</string>
-
     <!-- Gestures Settings -->
     <string name="offscreen_gesture_title">Screen off gestures</string>
     <string name="offscreen_gesture_summary">Draw patterns or tap on screen to perform actions</string>
