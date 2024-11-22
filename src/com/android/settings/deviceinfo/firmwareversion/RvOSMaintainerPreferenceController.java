@@ -48,9 +48,7 @@ public class RvOSMaintainerPreferenceController extends BasePreferenceController
 
     @Override
     public CharSequence getSummary() {
-        String rvosMaintainer = SystemProperties.get(RVOS_MAINTAINER,
-            mContext.getResources().getString(R.string.device_info_default));
-        return rvosMaintainer;
+        return SystemProperties.get(RVOS_MAINTAINER);
     }
 
     @Override
