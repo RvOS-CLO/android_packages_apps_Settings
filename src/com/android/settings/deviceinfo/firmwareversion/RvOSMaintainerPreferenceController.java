@@ -18,7 +18,6 @@ package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.SystemProperties;
 import android.text.TextUtils;
 
@@ -33,12 +32,10 @@ public class RvOSMaintainerPreferenceController extends BasePreferenceController
     private static final String RVOS_MAINTAINER_LINK = "ro.rvos.maintainer.link";
 
     private final Context mContext;
-    private final PackageManager mPackageManager;
 
     public RvOSMaintainerPreferenceController(Context context, String key) {
         super(context, key);
         mContext = context;
-        mPackageManager = context.getPackageManager();
     }
 
     @Override
