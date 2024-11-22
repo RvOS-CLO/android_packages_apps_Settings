@@ -17,7 +17,11 @@
 package com.android.settings.deviceinfo.firmwareversion;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.SystemProperties;
+import android.text.TextUtils;
+
+import androidx.preference.Preference;
 
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
@@ -25,6 +29,7 @@ import com.android.settings.core.BasePreferenceController;
 public class CodeLinaroRevisionPreferenceController extends BasePreferenceController {
 
     private static final String CODELINARO_REVISION_PROP = "ro.codelinaro.revision";
+    private static final String CODELINARO_REVISION_LINK_PROP = "ro.codelinaro.revision.link";
 
     private final Context mContext;
 
@@ -41,5 +46,21 @@ public class CodeLinaroRevisionPreferenceController extends BasePreferenceContro
     @Override
     public CharSequence getSummary() {
 		return SystemProperties.get(CODELINARO_REVISION_PROP);
+    }
+
+    @Override
+    public boolean handlePreferenceTreeClick(Preference preference) {
+        if (!TextUtils.equals(preference.getKey(), getPreferenceKey())) {
+            return false;
+        }
+
+        String codelinaroRevisionLink = SystemProperties.get(CODELINARO_REVISION_LINK_PROP);
+
+        final Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(android.net.Uri.parse(codelinaroRevisionLink));
+
+        mContext.startActivity(intent);
+        return true;
     }
 }
