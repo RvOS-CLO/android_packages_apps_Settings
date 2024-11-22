@@ -40,8 +40,6 @@ public class CodeLinaroRevisionPreferenceController extends BasePreferenceContro
 
     @Override
     public CharSequence getSummary() {
-        String codelinaroRevision = SystemProperties.get(CODELINARO_REVISION_PROP,
-            mContext.getResources().getString(R.string.device_info_default));
-		return codelinaroRevision;
+		return SystemProperties.get(CODELINARO_REVISION_PROP);
     }
 }
