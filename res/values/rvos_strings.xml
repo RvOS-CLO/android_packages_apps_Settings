@@ -39,5 +39,6 @@
 
     <!-- Radio Info -->
     <string name="radio_info_title">Radio info</string>
+    <string name="radio_info_summary">Device network testing menu</string>
 
 </resources>
