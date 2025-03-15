@@ -17,6 +17,7 @@
 
 package com.android.settings.notification;
 
+import static android.app.admin.DevicePolicyResources.Strings.Settings.WORK_APPS_CANNOT_ACCESS_NOTIFICATION_SETTINGS;
 import static android.view.WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS;
 
 import static com.android.internal.notification.NotificationAccessConfirmationActivityContract.EXTRA_COMPONENT_NAME;
@@ -26,23 +27,30 @@ import android.Manifest;
 import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.ServiceInfo;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.UserManager;
+import android.service.notification.NotificationListenerService;
 import android.text.TextUtils;
 import android.util.Slog;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
+import android.widget.Toast;
 
 import com.android.internal.app.AlertActivity;
 import com.android.internal.app.AlertController;
 import com.android.settings.R;
+
+import java.util.List;
 
 /** @hide */
 public class NotificationAccessConfirmationActivity extends Activity
@@ -55,11 +63,27 @@ public class NotificationAccessConfirmationActivity extends Activity
     private ComponentName mComponentName;
     private NotificationManager mNm;
 
+    private DevicePolicyManager mDpm;
+    private UserManager mUm;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
+
+        mUm = getSystemService(UserManager.class);
+        mDpm = getSystemService(DevicePolicyManager.class);
+
+        if (mUm.isManagedProfile()) {
+            Slog.w(LOG_TAG, "Apps in the work profile do not support notification listeners");
+            Toast.makeText(this,
+                    mDpm.getResources().getString(WORK_APPS_CANNOT_ACCESS_NOTIFICATION_SETTINGS,
+                            () -> getString(R.string.notification_settings_work_profile)),
+                    Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
         mNm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -88,6 +112,31 @@ public class NotificationAccessConfirmationActivity extends Activity
         }
 
         if (TextUtils.isEmpty(mAppLabel)) {
+            finish();
+            return;
+        }
+
+        // Check NLS service info.
+        String requiredPermission = Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE;
+        Intent NLSIntent = new Intent(NotificationListenerService.SERVICE_INTERFACE);
+        List<ResolveInfo> matchedServiceList = getPackageManager().queryIntentServicesAsUser(
+                NLSIntent, /* flags */ 0, mUserId);
+        boolean hasNLSIntentFilter = false;
+        for (ResolveInfo service : matchedServiceList) {
+            if (service.serviceInfo.packageName.equals(mComponentName.getPackageName())) {
+                if (!requiredPermission.equals(service.serviceInfo.permission)) {
+                    Slog.e(LOG_TAG, "Service " + mComponentName + " lacks permission "
+                            + requiredPermission);
+                    finish();
+                    return;
+                }
+                hasNLSIntentFilter = true;
+                break;
+            }
+        }
+        if (!hasNLSIntentFilter) {
+            Slog.e(LOG_TAG, "Service " + mComponentName + " lacks an intent-filter action "
+                    + "for android.service.notification.NotificationListenerService.");
             finish();
             return;
         }
@@ -126,19 +175,6 @@ public class NotificationAccessConfirmationActivity extends Activity
     }
 
     private void onAllow() {
-        String requiredPermission = Manifest.permission.BIND_NOTIFICATION_LISTENER_SERVICE;
-        try {
-            ServiceInfo serviceInfo = getPackageManager().getServiceInfo(mComponentName, 0);
-            if (!requiredPermission.equals(serviceInfo.permission)) {
-                Slog.e(LOG_TAG,
-                        "Service " + mComponentName + " lacks permission " + requiredPermission);
-                return;
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            Slog.e(LOG_TAG, "Failed to get service info for " + mComponentName, e);
-            return;
-        }
-
         mNm.setNotificationListenerAccessGranted(mComponentName, true);
 
         finish();
@@ -147,12 +183,6 @@ public class NotificationAccessConfirmationActivity extends Activity
     @Override
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
         return AlertActivity.dispatchPopulateAccessibilityEvent(this, event);
-    }
-
-    @Override
-    public void onBackPressed() {
-        // Suppress finishing the activity on back button press,
-        // consistently with the permission dialog behavior
     }
 
     @Override
