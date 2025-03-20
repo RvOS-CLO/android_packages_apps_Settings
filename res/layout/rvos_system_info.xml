@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/settingslib_preference_bg_color"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="0dp">
+
+        <!-- Layout utama dengan orientasi horizontal -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="24dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingEnd="16dp">
+
+                <!-- Maintainer -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maintainer"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:id="@+id/maintainer_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Processor -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Processor"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:id="@+id/processor_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- RAM -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RAM"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:textColorPrimary"
+                        android:id="@+id/ram_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <!-- ZRAM/SWAP -->
+                    <TextView
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:textColor="?android:colorPrimary"
+                        android:id="@+id/zram_badge"
+                        android:background="@drawable/badge_backgrounds"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp" />
+                </LinearLayout>
+
+                <!-- Camera -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Camera"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:id="@+id/camera_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingStart="16dp">
+
+                <!-- Battery -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Battery"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:id="@+id/battery_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Display -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Display"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:id="@+id/display_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- CLO Revision -->
+                <TextView
+                    android:textSize="12sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLO Revision"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?android:textColorPrimary"
+                    android:id="@+id/clo_revision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

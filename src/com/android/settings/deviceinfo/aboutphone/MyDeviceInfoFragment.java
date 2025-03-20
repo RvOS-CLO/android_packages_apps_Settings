@@ -59,6 +59,20 @@ import android.content.IntentFilter;
 import com.android.internal.telephony.IccCardConstants;
 import com.android.internal.telephony.TelephonyIntents;
 
+
+import android.os.Bundle;
+import android.provider.Settings;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+ 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+
+import com.android.settings.preferences.RvosPreferenceController;
+
 @SearchIndexable
 public class MyDeviceInfoFragment extends DashboardFragment
         implements DeviceNamePreferenceController.DeviceNamePreferenceHost {
@@ -141,6 +155,26 @@ public class MyDeviceInfoFragment extends DashboardFragment
         return buildPreferenceControllers(context, this /* fragment */, getSettingsLifecycle());
     }
 
+    @Override
+ 	public RecyclerView onCreateRecyclerView(LayoutInflater inflater, ViewGroup container, Bundle icicle) {
+ 		RecyclerView recyclerView = super.onCreateRecyclerView(inflater, container, icicle);
+ 		GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+ 		layoutManager.setSpanSizeLookup(new SpanSizeLookup());
+ 		recyclerView.setLayoutManager(layoutManager);
+ 		return recyclerView;
+ 	}
+ 	
+ 	class SpanSizeLookup extends GridLayoutManager.SpanSizeLookup {
+ 		@Override
+ 		public int getSpanSize(int position) {
+ 		    if (position == 1 || position == 2) {
+ 				return 1;
+ 			} else {
+ 				return 2;
+ 			}
+ 		}
+ 	}
+
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, MyDeviceInfoFragment fragment, Lifecycle lifecycle) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
@@ -156,6 +190,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
         controllers.add(new UptimePreferenceController(context, lifecycle));
         controllers.add(new SoftwareVersionPreferenceController(context));
         controllers.add(new StorageSizePreferenceController(context));
+        controllers.add(new RvosPreferenceController(context));
         return controllers;
     }
 
@@ -171,8 +206,7 @@ public class MyDeviceInfoFragment extends DashboardFragment
         // TODO: Migrate into its own controller.
         final LayoutPreference headerPreference =
                 getPreferenceScreen().findPreference(KEY_MY_DEVICE_INFO_HEADER);
-        final boolean shouldDisplayHeader = getContext().getResources().getBoolean(
-                R.bool.config_show_device_header_in_device_info);
+        final boolean shouldDisplayHeader = false;
         headerPreference.setVisible(shouldDisplayHeader);
         if (!shouldDisplayHeader) {
             return;
