@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    android:key="top_level_settings"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
+    <com.android.settingslib.widget.LayoutPreference
+        android:layout="@layout/rv_dashboard_account"
+        android:key="rv_my_account"
+        android:order="-110" />
+    <SwitchPreference
+        android:icon="@drawable/settings_airplane_ic"
+        android:title="@string/airplane_mode"
+        android:key="airplane_mode"
+        android:order="-96"
+        settings:controller="com.android.settings.network.AirplaneModePreferenceController" />
+    <Preference
+        android:icon="@drawable/settings_connectivity_ic"
+        android:title="@string/rv_dashboard_network"
+        android:key="internet_settings"
+        android:summaryOn="@string/summary_placeholder"
+        android:order="-95"
+        android:fragment="com.android.settings.network.NetworkDashboardFragment"
+        settings:keywords="@string/keywords_internet"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/settings_hotspot_ic"
+        android:title="@string/rv_dashboard_portable_hotspot"
+        android:key="tether_settings"
+        android:summaryOn="@string/summary_placeholder"
+        android:order="-94"
+        android:fragment="com.android.settings.TetherSettings"
+        settings:keywords="@string/keywords_hotspot_tethering"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_devices_other"
+        android:title="@string/rv_dashboard_conectivity"
+        android:key="top_level_connected_devices"
+        android:order="-90"
+        android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
+        settings:layout="@layout/rv_card_homepage_oplus_bottom" />
+    <Preference
+        android:icon="@drawable/ic_settings_display_white"
+        android:title="@string/rv_dashboard_display"
+        android:key="top_level_display"
+        android:order="-85"
+        android:fragment="com.android.settings.DisplaySettings"
+        settings:layout="@layout/rv_card_homepage_oplus_top" />
+    <Preference
+        android:icon="@drawable/ic_settings_battery_white"
+        android:title="@string/rv_dashboard_battery"
+        android:key="top_level_battery"
+        android:order="-75"
+        android:fragment="com.android.settings.fuelgauge.batteryusage.PowerUsageSummary"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_volume_up_24dp"
+        android:title="@string/rv_dashboard_sound"
+        android:key="top_level_sound"
+        android:order="-70"
+        android:fragment="com.android.settings.notification.SoundSettings"
+        settings:layout="@layout/rv_card_homepage_oplus_bottom" />
+    <Preference
+        android:icon="@drawable/ic_apps"
+        android:title="@string/rv_dashboard_apps"
+        android:key="top_level_apps"
+        android:order="-65"
+        android:fragment="com.android.settings.applications.AppDashboardFragment"
+        settings:layout="@layout/rv_card_homepage_oplus_top" />
+    <Preference
+        android:icon="@drawable/ic_notifications"
+        android:title="@string/rv_dashboard_notif"
+        android:key="top_level_notification"
+        android:order="-60"
+        android:fragment="com.android.settings.notification.ConfigureNotificationSettings"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_settings_accounts"
+        android:title="@string/rv_dashboard_account"
+        android:key="top_level_accounts"
+        android:order="-55"
+        android:fragment="com.android.settings.accounts.AccountDashboardFragment"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_storage_white"
+        android:title="@string/rv_dashboard_storage"
+        android:key="top_level_storage"
+        android:order="-50"
+        android:fragment="com.android.settings.deviceinfo.StorageDashboardFragment"
+        settings:layout="@layout/rv_card_homepage_oplus_bottom" />
+    <Preference
+        android:icon="@drawable/ic_settings_privacy"
+        android:title="@string/rv_dashboard_privacy"
+        android:key="top_level_privacy"
+        android:order="-45"
+        android:fragment="com.android.settings.privacy.PrivacyDashboardFragment"
+        settings:layout="@layout/rv_card_homepage_oplus_top" />
+    <Preference
+        android:icon="@drawable/ic_settings_location"
+        android:title="@string/rv_dashboard_location"
+        android:key="top_level_location"
+        android:order="-40"
+        android:fragment="com.android.settings.location.LocationSettings"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_settings_security_white"
+        android:title="@string/rv_dashboard_security"
+        android:key="top_level_security"
+        android:order="-35"
+        android:fragment="com.android.settings.security.SecuritySettings"
+        settings:controller="com.android.settings.security.TopLevelSecurityEntryPreferenceController"
+        settings:layout="@layout/rv_card_homepage_oplus_bottom" />
+    <Preference
+        android:icon="@drawable/ic_settings_accessibility"
+        android:title="@string/rv_dashboard_accessibility"
+        android:key="top_level_accessibility"
+        android:order="-30"
+        android:fragment="com.android.settings.accessibility.AccessibilitySettings"
+        settings:layout="@layout/rv_card_homepage_oplus_top" />
+    <Preference
+        android:title="@string/rv_dashboard_support"
+        android:key="top_level_support"
+        android:order="-5"
+        settings:controller="com.android.settings.support.SupportPreferenceController"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_settings_system_dashboard_white"
+        android:title="@string/rv_dashboard_system"
+        android:key="top_level_system"
+        android:order="10"
+        android:fragment="com.android.settings.system.SystemDashboardFragment"
+        settings:layout="@layout/rv_card_homepage_oplus_middle" />
+    <Preference
+        android:icon="@drawable/ic_settings_about_device"
+        android:title="@string/about_settings"
+        android:key="top_level_about_device"
+        android:summary="@string/summary_placeholder"
+        android:order="20"
+        android:fragment="com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment"
+        settings:controller="com.android.settings.deviceinfo.aboutphone.TopLevelAboutDevicePreferenceController"
+        settings:highlightableMenuKey="@string/menu_key_about_device"
+        settings:layout="@layout/rv_card_homepage_oplus_bottom" />
+</PreferenceScreen>

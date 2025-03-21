@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="60.0dip"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@id/container_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <androidx.preference.internal.PreferenceImageView
+            android:layout_gravity="center"
+            android:background="@drawable/adaptive_icon_shape"
+            android:padding="6.0dip"
+            android:id="@android:id/icon"
+            android:layout_width="36.0dip"
+            android:layout_height="36.0dip"
+            android:tint="?android:colorAccent"
+            android:backgroundTint="@color/card_surface_color"
+            android:layout_marginEnd="16.0dip"
+            app:maxHeight="48.0dip"
+            app:maxWidth="48.0dip" />
+        <TextView
+            android:textSize="16.0sp"
+            android:textStyle="normal"
+            android:textColor="?android:textColorPrimary"
+            android:id="@android:id/title"
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18.0dip"
+            android:layout_marginBottom="18.0dip"
+            android:singleLine="true"
+            android:layout_weight="1.0"
+            android:textAlignment="viewStart" />
+        <ImageView
+            android:layout_gravity="end|center"
+            android:id="@id/icon"
+            android:layout_width="16.0dip"
+            android:layout_height="16.0dip"
+            android:src="@drawable/ic_arrow_forward"
+            android:tint="?android:textColorSecondary"
+            android:alpha="0.7"
+            android:layout_marginStart="6.0dip" />
+    </LinearLayout>
+</LinearLayout>

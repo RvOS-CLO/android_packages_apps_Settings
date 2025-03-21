@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <com.android.settingslib.widget.AdaptiveIconShapeDrawable android:height="38.0dip" android:width="38.0dip" android:color="#ffface37" />
+    </item>
+    <item android:height="38.0dip" android:width="38.0dip" android:drawable="@drawable/settings_display_ic_inner" android:top="0.0dip" android:start="0.0dip" />
+</layer-list>

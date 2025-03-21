@@ -222,4 +222,18 @@
 
     <!-- About UI -->
      <color name="preference_card_background">@android:color/system_neutral1_10</color>
+
+     <!-- Framework -->
+     <color name="rv_pref_ripple">#1f000000</color>
+     <color name="rv_pref_card_color">@android:color/system_neutral1_10</color>
+     <color name="rv_pref_card_opaque">#33FFFFFF</color>
+     <color name="rv_background1">@android:color/system_neutral1_50</color>
+     <color name="rv_background2">@android:color/system_neutral1_100</color>
+     <color name="rv_dashboard_header_color">@color/rv_base_layout_header</color>
+     <color name="rv_clock_bg">@android:color/system_accent1_50</color>
+     <color name="rv_clock_color">@android:color/system_accent1_800</color>
+     <color name="rv_simply_mask">@android:color/transparent</color>
+
+     <color name="card_surface_color">@android:color/system_neutral1_100</color>
+
 </resources>

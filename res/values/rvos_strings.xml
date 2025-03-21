@@ -41,4 +41,39 @@
     <string name="radio_info_title">Radio info</string>
     <string name="radio_info_summary">Device network testing menu</string>
 
+
+    <!-- Dashboard -->
+    <string name="rv_dashboard_greet_default">What are you looking for?</string>
+    <string name="rv_dashboard_greet1">What are you looking for?</string>
+    <string name="rv_dashboard_greet2">Looking for something?</string>
+    <string name="rv_dashboard_greet3">Need to change anything?</string>
+    <string name="rv_dashboard_greet4">Search for something?</string>
+    <string name="rv_dashboard_greet5">Need anything?</string>
+    <string name="rv_dashboard_greet6">Let\'s do something cool</string>
+    <string name="rv_dashboard_greet7">Got something to change?</string>
+    <string name="rv_dashboard_greet8">Say hi, to the world?</string>
+    <string name="rv_dashboard_greet9">Hi, welcome to mnmlist</string>
+    <string name="rv_dashboard_greet10">Tweak your device here!</string>
+    <string name="rv_dashboard_greet11">Try to find something?</string>
+    <string name="rv_dashboard_greet12">Hey, There i\'am using rvroid</string>
+    <string name="rv_dashboard_device">About phone</string>
+    <string name="rv_dashboard_account">Account</string>
+    <string name="rv_dashboard_account_summary">Manage all user profile available in this device here</string>
+    <string name="rv_dashboard_network">Connectivity</string>
+    <string name="rv_dashboard_portable_hotspot">Portable hotspot</string>
+    <string name="rv_dashboard_conectivity">Devices</string>    
+    <string name="rv_dashboard_display">Display</string>
+    <string name="rv_dashboard_battery">Battery</string>
+    <string name="rv_dashboard_sound">Sound</string>
+    <string name="rv_dashboard_apps">Apps</string>
+    <string name="rv_dashboard_notif">Notifications</string>
+    <string name="rv_dashboard_storage">Storage</string>
+    <string name="rv_dashboard_privacy">Privacy</string>    
+    <string name="rv_dashboard_location">Location</string>
+    <string name="rv_dashboard_security">Security</string>
+    <string name="rv_dashboard_accessibility">Accessibility</string>
+    <string name="rv_dashboard_system">Other</string>    
+    <string name="rv_dashboard_wellbeing">Digital Wellbeing</string>
+    <string name="rv_dashboard_support">Support</string>
+
 </resources>

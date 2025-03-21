@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple
+    android:color="@android:color/transparent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@android:id/mask">
+        <shape>
+            <solid
+                android:color="#ffffffff" />
+            <corners
+                android:topLeftRadius="@dimen/rv_pref_card_radius"
+                android:topRightRadius="@dimen/rv_pref_card_radius"
+                android:bottomLeftRadius="@dimen/rv_pref_card_radius-outer"
+                android:bottomRightRadius="@dimen/rv_pref_card_radius-outer" />
+        </shape>
+    </item>
+    <item
+        android:id="@android:id/background">
+        <shape
+            android:shape="rectangle">
+            <solid
+                android:color="@android:color/transparent" />
+            <corners
+                android:topLeftRadius="@dimen/rv_pref_card_radius"
+                android:topRightRadius="@dimen/rv_pref_card_radius"
+                android:bottomLeftRadius="@dimen/rv_pref_card_radius-outer"
+                android:bottomRightRadius="@dimen/rv_pref_card_radius-outer" />
+        </shape>
+    </item>
+</ripple>

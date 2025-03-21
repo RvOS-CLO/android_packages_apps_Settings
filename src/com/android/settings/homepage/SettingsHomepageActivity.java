@@ -74,9 +74,10 @@ import com.android.settings.overlay.FeatureFactory;
 import com.android.settings.safetycenter.SafetyCenterManagerWrapper;
 import com.android.settingslib.Utils;
 import com.android.settingslib.core.lifecycle.HideNonSystemOverlayMixin;
-
+import android.widget.TextView;
 import java.net.URISyntaxException;
-import java.util.Set;
+import java.util.*;
+import java.lang.*;
 
 /** Settings homepage activity */
 public class SettingsHomepageActivity extends FragmentActivity implements
@@ -206,7 +207,15 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
 
         setupEdgeToEdge();
-        setContentView(R.layout.settings_homepage_container);
+        setContentView(R.layout.rv_dashboard_container);
+
+        // RvOS Dashboard
+        // Generate random welcome massage as title header
+        final TextView textView = findViewById(R.id.homepage_title);
+        String[] msg = getResources().getStringArray(R.array.rv_dashboard_greet);
+        Random genmsg = new Random();
+        int  n = genmsg.nextInt(msg.length-1);
+        textView.setText(msg[n]);
 
         mActivityEmbeddingController = ActivityEmbeddingController.getInstance(this);
         mIsTwoPane = mActivityEmbeddingController.isActivityEmbedded(this);
@@ -226,7 +235,6 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         final String highlightMenuKey = getHighlightMenuKey();
         // Only allow features on high ram devices.
         if (!getSystemService(ActivityManager.class).isLowRamDevice()) {
-            initAvatarView();
             final boolean scrollNeeded = mIsEmbeddingActivityEnabled
                     && !TextUtils.equals(getString(DEFAULT_HIGHLIGHT_MENU_KEY), highlightMenuKey);
             showSuggestionFragment(scrollNeeded);
@@ -354,20 +362,6 @@ public class SettingsHomepageActivity extends FragmentActivity implements
         }
     }
 
-    private void initAvatarView() {
-        final ImageView avatarView = findViewById(R.id.account_avatar);
-        final ImageView avatarTwoPaneView = findViewById(R.id.account_avatar_two_pane_version);
-        if (AvatarViewMixin.isAvatarSupported(this)) {
-            avatarView.setVisibility(View.VISIBLE);
-            getLifecycle().addObserver(new AvatarViewMixin(this, avatarView));
-
-            if (mIsEmbeddingActivityEnabled) {
-                avatarTwoPaneView.setVisibility(View.VISIBLE);
-                getLifecycle().addObserver(new AvatarViewMixin(this, avatarTwoPaneView));
-            }
-        }
-    }
-
     private void updateHomepageBackground() {
         if (!mIsEmbeddingActivityEnabled) {
             return;
@@ -394,10 +388,12 @@ public class SettingsHomepageActivity extends FragmentActivity implements
 
         mSuggestionView = findViewById(R.id.suggestion_content);
         mTwoPaneSuggestionView = findViewById(R.id.two_pane_suggestion_content);
-        mHomepageView = findViewById(R.id.settings_homepage_container);
+        mHomepageView = findViewById(R.id.rv_dashboard_container);
         // Hide the homepage for preparing the suggestion. If scrolling is needed, the list views
         // should be initialized in the invisible homepage view to prevent a scroll flicker.
         mHomepageView.setVisibility(scrollNeeded ? View.INVISIBLE : View.GONE);
+        // Hide the homepage for preparing the suggestion.
+         mHomepageView.setVisibility(View.GONE);
         // Schedule a timer to show the homepage and hide the suggestion on timeout.
         mHomepageView.postDelayed(() -> showHomepageWithSuggestion(false),
                 HOMEPAGE_LOADING_TIMEOUT_MS);
