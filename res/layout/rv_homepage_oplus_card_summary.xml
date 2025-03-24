@@ -16,15 +16,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <androidx.preference.internal.PreferenceImageView
-            android:layout_gravity="center"
+            android:layout_gravity="center"           
+            android:id="@android:id/icon"
             android:background="@drawable/adaptive_icon_shape"
             android:padding="6.0dip"
-            android:id="@android:id/icon"
             android:layout_width="36.0dip"
             android:layout_height="36.0dip"
-            android:tint="?android:colorAccent"
-            android:backgroundTint="@color/card_surface_color"
+            android:tint="@android:color/white"
             android:layout_marginEnd="16.0dip"
+            android:backgroundTint="@android:color/system_accent1_600"
             app:maxHeight="48.0dip"
             app:maxWidth="48.0dip" />
         <TextView

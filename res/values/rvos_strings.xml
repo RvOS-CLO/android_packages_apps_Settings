@@ -76,4 +76,17 @@
     <string name="rv_dashboard_wellbeing">Digital Wellbeing</string>
     <string name="rv_dashboard_support">Support</string>
 
+    <!-- Firmware Ui -->
+    <string name="rv_fw_general">General Information</string>
+    <string name="rv_fw_info">Android Information</string>
+    <string name="firmware_info">Firmware Information</string>
+    <string name="rv_firmware_brand">RvOS˚</string>
+    <string name="rv_firmware_desc">Long Term Use</string>
+    <string name="build_date">Build date</string>
+    <string name="about_device_name">Device</string>
+     <!-- SELinux Status -->
+     <string name="selinux_status">SELinux status</string>
+     <string name="selinux_status_disabled">Disabled</string>
+     <string name="selinux_status_permissive">Permissive</string>
+     <string name="selinux_status_enforcing">Enforcing</string>
 </resources>

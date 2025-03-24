@@ -1,87 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Copyright (C) 2019 The Android Open Source Project
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
-
 <PreferenceScreen
+    android:title="@string/firmware_info"
+    settings:keywords="@string/keywords_android_version"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res-auto"
-    android:title="@string/firmware_version"
-    settings:keywords="@string/keywords_android_version">
-
-    <com.android.settingslib.widget.LayoutPreference
-        android:key="rvos_logo"
-        android:layout="@layout/rvos_logo"
-        android:selectable="false"/>
-
-    <!-- Android version -->
+    xmlns:settings="http://schemas.android.com/apk/res-auto">
     <Preference
-        android:key="os_firmware_version"
-        android:title="@string/firmware_version"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        settings:searchable="false"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
-
-    <!-- Security patch -->
-    <Preference
-        android:key="security_key"
-        android:title="@string/security_patch"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
-
-    <!-- Mainline module version -->
-    <Preference
-        android:key="module_version"
-        android:title="@string/module_version"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"/>
-
-    <!-- Baseband -->
-    <Preference
-        android:key="base_band"
-        android:title="@string/baseband_version"
-        android:summary="@string/summary_placeholder"
         android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
-
-    <!-- Kernel -->
-    <Preference
-        android:key="kernel_version"
-        android:title="@string/kernel_version"
-        android:summary="@string/summary_placeholder"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
-
-    <!-- Build -->
-    <Preference
-        android:key="os_build_date"
-        android:title="@string/build_date"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildDatePreferenceController"/>
-
-    <!-- <Preference
-        android:key="os_build_number"
-        android:title="@string/build_number"
-        android:summary="@string/summary_placeholder"
-        android:selectable="false"
-        settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/> -->
-
+        settings:layout="@layout/rv_firmware_banner" />
+    <PreferenceCategory
+        android:title="@string/rv_fw_info">
+        <Preference
+            android:icon="@drawable/device_firmware"
+            android:title="@string/about_device_name"
+            android:key="about_device_name"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_top" />
+        <Preference
+            android:icon="@drawable/android_firmware"
+            android:title="@string/firmware_version"
+            android:key="os_firmware_version"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_middle" />
+        <Preference
+            android:icon="@drawable/security_firmware"
+            android:title="@string/security_patch"
+            android:key="security_key"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_bottom" />
+        <Preference
+            android:title="@string/module_version"
+            android:key="module_version"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"
+            settings:enableCopying="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/rv_fw_general">
+        <Preference
+            android:icon="@drawable/baseband_firmware"
+            android:title="@string/baseband_version"
+            android:key="base_band"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_top" />
+        <Preference
+            android:icon="@drawable/kernel_firmware"
+            android:title="@string/kernel_version"
+            android:key="kernel_version"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_middle" />
+        <Preference
+            android:icon="@drawable/build_date_firmware"
+            android:title="@string/build_date"
+            android:key="os_build_date"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildDatePreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_middle" />
+        <Preference
+            android:icon="@drawable/build_number_firmware"
+            android:title="@string/build_number"
+            android:key="os_build_number"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_middle" />
+        <Preference
+            android:icon="@drawable/selinux_firmware"
+            android:title="@string/selinux_status"
+            android:key="selinux_status"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.SelinuxStatusPreferenceController"
+            settings:enableCopying="true"
+            settings:layout="@layout/rv_card_firmware_bottom" />
+    </PreferenceCategory>
 </PreferenceScreen>

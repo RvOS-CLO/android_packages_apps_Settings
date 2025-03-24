@@ -6,19 +6,15 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <!-- Banner Card -->
     <com.google.android.material.card.MaterialCardView
         android:layout_gravity="center_horizontal"
         android:id="@+id/banner_card"
         android:layout_width="fill_parent"
         android:layout_height="200.0dip"
-        android:layout_marginTop="24.0dip"
         android:layout_marginHorizontal="16.0dip"
         app:cardCornerRadius="28.0dip"
         app:cardElevation="0.0dip"
         app:strokeWidth="0.0dip">
-
         <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
@@ -27,17 +23,15 @@
                 android:layout_height="fill_parent"
                 android:scaleType="centerCrop"
                 app:blurred="true" />
-
             <ImageView
                 android:layout_gravity="center|top"
-                android:id="@+id/icon"
-                android:layout_marginTop="20.0dip"
+                android:id="@id/icon"
                 android:layout_width="132.0dip"
                 android:layout_height="132.0dip"
+                android:layout_marginTop="20.0dip"
                 android:src="@drawable/rvos_banner"
                 android:tint="@android:color/white"
                 android:textAlignment="center" />
-
             <TextView
                 android:textSize="14.0sp"
                 android:textStyle="bold"

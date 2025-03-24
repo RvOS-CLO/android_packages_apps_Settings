@@ -95,6 +95,7 @@
 
                     <!-- ZRAM/SWAP -->
                     <TextView
+                        android:gravity="center"
                         android:textSize="10sp"
                         android:textStyle="bold"
                         android:textColor="?android:colorPrimary"
