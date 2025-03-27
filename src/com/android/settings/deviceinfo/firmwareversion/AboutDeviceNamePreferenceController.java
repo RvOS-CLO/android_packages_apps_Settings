@@ -36,6 +36,7 @@ public class AboutDeviceNamePreferenceController extends BasePreferenceControlle
 
     private static final String KEY_BRAND_NAME_PROP = "ro.product.manufacturer";
     private static final String KEY_DEVICE_NAME_PROP = "ro.product.device";
+    private static final String KEY_MARKET_NAME_PROP = "ro.product.marketname";
 
     public AboutDeviceNamePreferenceController(Context context, String key) {
         super(context, key);
@@ -53,6 +54,8 @@ public class AboutDeviceNamePreferenceController extends BasePreferenceControlle
         String deviceCodename = SystemProperties.get(KEY_DEVICE_NAME_PROP,
                 mContext.getString(R.string.device_info_default));
         String deviceModel = Build.MODEL;
-        return deviceCodename;
+        String deviceMarketname = SystemProperties.get(KEY_MARKET_NAME_PROP,
+                deviceBrand + " " + deviceModel);
+        return deviceMarketname + " | " + deviceCodename;
     }
 }
